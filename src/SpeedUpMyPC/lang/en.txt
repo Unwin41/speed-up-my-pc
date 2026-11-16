@@ -1,0 +1,129 @@
+# English. This is the default language: any key missing from another
+# language file is shown in English instead.
+#
+# To add a language, copy this file to lang/<code>.txt (for example de.txt or
+# pt-BR.txt), translate the text after each "=", and build. Nothing else to change.
+# Keep {0}, {1}... as they are: the app puts numbers and names there.
+# \n starts a new line.
+
+@name = English
+
+app.title = Speed up my PC
+
+main.button = Speed up my PC
+main.working = Working...
+main.wait = This can take a minute.
+main.undo = Undo startup changes
+main.findFiles = Find duplicate and large files
+main.apps = Installed apps
+main.settings = Settings
+main.done = Done! Freed {0}.
+main.note = Only temporary files were removed. Windows makes new ones when it needs them.
+main.noteUpdateSkipped = Only temporary files were removed. Windows Update files were skipped because an update is in progress.
+main.startupFine = Your startup apps look fine.
+main.close = Close
+main.startupHeading = These apps start with Windows and slow it down.\nTurning them off doesn't uninstall them.
+main.turnOff = Turn off selected
+main.skip = Skip
+main.turnedOffOne = Turned off 1 app. It will stay off the next time you start your PC.
+main.turnedOffMany = Turned off {0} apps. They will stay off the next time you start your PC.
+main.undoFailed = Couldn't undo the startup changes: {0}\n\nClose any other copy of this app and try again.
+main.undoNothing = There was nothing to undo.
+main.undoPartial = Some startup apps couldn't be restored. Try Undo again, or turn them back on in Task Manager's Startup tab.
+main.undoDone = Done. Your startup apps are back the way they were.
+clean.cleaning = Cleaning {0}
+
+units.bytes = {0} bytes
+units.kb = {0} KB
+units.mb = {0} MB
+units.gb = {0} GB
+
+col.name = Name
+col.size = Size
+col.lastChanged = Last changed
+col.folder = Folder
+col.fileOrFolder = File or folder
+col.skipReason = Why it was skipped
+col.publisher = Publisher
+col.sizeFrom = Size from
+col.installed = Installed
+col.lastUsed = Last used
+
+finder.title = Find duplicate and large files
+finder.folders = Folders to search
+finder.addFolder = Add folder...
+finder.remove = Remove
+finder.largeAtLeast = Large files: at least
+finder.mbAndNotChanged = MB and not changed for at least
+finder.days = days
+finder.find = Find files
+finder.stop = Stop
+finder.intro = Pick folders, then press Find files. Nothing is deleted or changed.
+finder.tabDuplicates = Duplicates
+finder.tabLarge = Large and old
+finder.tabSkipped = Skipped
+finder.tabCount = {0} ({1})
+finder.showInFolder = Show in folder
+finder.copyPath = Copy path
+finder.note = This only lists files. Nothing is deleted. Open the folder and decide for yourself.
+finder.pickFolder = Pick a folder to search.
+finder.stopping = Stopping...
+finder.needFolder = Add at least one folder to search.
+finder.stopped = Stopped. Nothing was changed.
+finder.error = The search stopped because of an error: {0}
+finder.starting = Starting...
+finder.summarySearched = Searched {0} files.
+finder.summaryNoDuplicates = No duplicates.
+finder.summaryDuplicates = {0} sets of identical files; the extra copies use {1}.
+finder.summaryLarge = {0} large old files.
+finder.summaryCut = Long lists show the biggest {0}.
+finder.group = {0} identical files, {1} each. Extra copies: {2}
+finder.pickFile = Pick a file in the list first.
+finder.copied = Copied: {0}
+finder.copyFailed = Couldn't copy. Another program is using the clipboard.
+finder.progressWalk = Looking through folders... {0} files so far
+finder.progressQuick = Comparing files of the same size... {0} of {1}
+finder.progressFull = Checking possible duplicates... {0} of {1}
+finder.changed = Changed while searching
+finder.cantRead = Couldn't be read: {0}
+
+walker.folderLink = Folder link or junction, not followed
+walker.fileLink = File link, not followed
+walker.cloudOnly = Online-only cloud file, not downloaded
+error.notThere = No longer there
+error.noPermission = No permission to open
+error.inUse = In use by another program
+error.notAllowed = Windows doesn't allow opening it
+
+apps.title = Installed apps
+apps.note = Windows doesn't keep a reliable "last used" date for desktop apps, so this list can't tell which ones you rarely use, and it doesn't guess. Click a column to sort, for example by size.
+apps.noData = No data
+apps.uninstall = Uninstall in Windows Settings...
+apps.stopMeasuring = Stop measuring
+apps.classic = Classic Programs and Features
+apps.reading = Reading the list of installed apps...
+apps.sizeUnknown = Not known
+apps.sizeNotListed = Not listed
+apps.sizeMeasured = Measured folder
+apps.sizeEstimate = App's estimate
+apps.measuring = Measuring the folders of apps that don't list a size... {0} of {1}
+apps.summary = {0} apps. Known sizes add up to {1}.
+apps.summaryUnknown = {0} don't list a size.
+apps.summaryStopped = Measuring was stopped.
+apps.summaryStore = Store apps are listed in Windows Settings only.
+apps.pickApp = Pick an app in the list first.
+apps.openedSettingsCopied = Opened Windows Settings. The name "{0}" is copied: paste it into the search box there, then pick Uninstall.
+apps.openedSettings = Opened Windows Settings. Search there for "{0}", then pick Uninstall.
+apps.openedClassic = Opened Programs and Features. Find "{0}" there, then pick Uninstall.
+apps.openFailed = Couldn't open Windows Settings. Open Settings > Apps > Installed apps yourself.
+
+settings.title = Settings
+settings.language = Language
+settings.languageAuto = Same as Windows
+settings.theme = Appearance
+settings.themeAuto = Same as Windows
+settings.light = Light
+settings.dark = Dark
+settings.highContrast = High contrast is on in Windows, so the app uses Windows' colors.
+settings.ok = OK
+settings.cancel = Cancel

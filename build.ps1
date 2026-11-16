@@ -8,11 +8,15 @@ $src = Join-Path $PSScriptRoot 'src\SpeedUpMyPC'
 $out = Join-Path $PSScriptRoot 'bin'
 New-Item -ItemType Directory -Force $out | Out-Null
 
+# Every file in lang/ is built in as a language: adding a language is adding a file.
+$languages = Get-ChildItem "$src\lang\*.txt" | ForEach-Object { "/resource:$($_.FullName),lang.$($_.Name)" }
+
 & $csc /nologo /target:winexe /optimize+ /platform:anycpu `
     /out:"$out\SpeedUpMyPC.exe" `
     /win32manifest:"$src\app.manifest" `
     /win32icon:"$src\app.ico" `
     /reference:System.Windows.Forms.dll /reference:System.Drawing.dll /reference:System.ServiceProcess.dll `
+    $languages `
     "$src\*.cs"
 if ($LASTEXITCODE -ne 0) { throw "Build failed" }
 Write-Host "Built $out\SpeedUpMyPC.exe"

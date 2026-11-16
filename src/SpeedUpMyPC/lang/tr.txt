@@ -1,0 +1,125 @@
+# Türkçe. Burada olmayan bir anahtar İngilizce (en.txt) gösterilir.
+# {0}, {1}... olduğu gibi kalmalı: uygulama oraya sayı ve isim koyar.
+# \n yeni satır başlatır.
+
+@name = Türkçe
+
+app.title = Bilgisayarımı Hızlandır
+
+main.button = Bilgisayarımı hızlandır
+main.working = Çalışıyor...
+main.wait = Bu bir dakika sürebilir.
+main.undo = Başlangıç değişikliklerini geri al
+main.findFiles = Kopya ve büyük dosyaları bul
+main.apps = Yüklü uygulamalar
+main.settings = Ayarlar
+main.done = Bitti! {0} boşaltıldı.
+main.note = Yalnızca geçici dosyalar silindi. Windows gerektiğinde yenilerini oluşturur.
+main.noteUpdateSkipped = Yalnızca geçici dosyalar silindi. Bir güncelleme sürdüğü için Windows Update dosyalarına dokunulmadı.
+main.startupFine = Başlangıç uygulamaların iyi görünüyor.
+main.close = Kapat
+main.startupHeading = Bu uygulamalar Windows ile açılıp onu yavaşlatıyor.\nKapatmak onları kaldırmaz.
+main.turnOff = Seçilenleri kapat
+main.skip = Geç
+main.turnedOffOne = 1 uygulama kapatıldı. Bilgisayarını bir sonraki açışında da kapalı kalacak.
+main.turnedOffMany = {0} uygulama kapatıldı. Bilgisayarını bir sonraki açışında da kapalı kalacaklar.
+main.undoFailed = Başlangıç değişiklikleri geri alınamadı: {0}\n\nBu uygulamanın açık olan diğer kopyalarını kapatıp tekrar dene.
+main.undoNothing = Geri alınacak bir şey yoktu.
+main.undoPartial = Bazı başlangıç uygulamaları geri getirilemedi. Geri almayı tekrar dene ya da onları Görev Yöneticisi'nin Başlangıç sekmesinden yeniden aç.
+main.undoDone = Tamam. Başlangıç uygulamaların eskisi gibi.
+clean.cleaning = Temizleniyor: {0}
+
+units.bytes = {0} bayt
+units.kb = {0} KB
+units.mb = {0} MB
+units.gb = {0} GB
+
+col.name = Ad
+col.size = Boyut
+col.lastChanged = Son değişiklik
+col.folder = Klasör
+col.fileOrFolder = Dosya veya klasör
+col.skipReason = Neden atlandı
+col.publisher = Yayımcı
+col.sizeFrom = Boyut kaynağı
+col.installed = Yüklenme
+col.lastUsed = Son kullanım
+
+finder.title = Kopya ve büyük dosyaları bul
+finder.folders = Aranacak klasörler
+finder.addFolder = Klasör ekle...
+finder.remove = Çıkar
+finder.largeAtLeast = Büyük dosyalar: en az
+finder.mbAndNotChanged = MB ve en az
+finder.days = gündür değişmemiş
+finder.find = Dosyaları bul
+finder.stop = Durdur
+finder.intro = Klasörleri seç, sonra Dosyaları bul'a bas. Hiçbir şey silinmez veya değiştirilmez.
+finder.tabDuplicates = Kopyalar
+finder.tabLarge = Büyük ve eski
+finder.tabSkipped = Atlananlar
+finder.tabCount = {0} ({1})
+finder.showInFolder = Klasörde göster
+finder.copyPath = Yolu kopyala
+finder.note = Bu pencere yalnızca dosyaları listeler. Hiçbir şey silinmez. Klasörü aç ve kararı sen ver.
+finder.pickFolder = Aranacak bir klasör seç.
+finder.stopping = Durduruluyor...
+finder.needFolder = Aramak için en az bir klasör ekle.
+finder.stopped = Durduruldu. Hiçbir şey değiştirilmedi.
+finder.error = Arama bir hata yüzünden durdu: {0}
+finder.starting = Başlıyor...
+finder.summarySearched = {0} dosya arandı.
+finder.summaryNoDuplicates = Kopya yok.
+finder.summaryDuplicates = {0} grup birebir aynı dosya; fazla kopyalar {1} yer kaplıyor.
+finder.summaryLarge = {0} büyük ve eski dosya.
+finder.summaryCut = Uzun listelerde en büyük {0} tanesi gösteriliyor.
+finder.group = {0} aynı dosya, her biri {1}. Fazla kopyalar: {2}
+finder.pickFile = Önce listeden bir dosya seç.
+finder.copied = Kopyalandı: {0}
+finder.copyFailed = Kopyalanamadı. Pano başka bir program tarafından kullanılıyor.
+finder.progressWalk = Klasörlere bakılıyor... şimdiye kadar {0} dosya
+finder.progressQuick = Aynı boyuttaki dosyalar karşılaştırılıyor... {0} / {1}
+finder.progressFull = Olası kopyalar kontrol ediliyor... {0} / {1}
+finder.changed = Arama sırasında değişti
+finder.cantRead = Okunamadı: {0}
+
+walker.folderLink = Klasör bağlantısı (junction), içine girilmedi
+walker.fileLink = Dosya bağlantısı, takip edilmedi
+walker.cloudOnly = Yalnızca bulutta duran dosya, indirilmedi
+error.notThere = Artık yok
+error.noPermission = Açma izni yok
+error.inUse = Başka bir program kullanıyor
+error.notAllowed = Windows açılmasına izin vermiyor
+
+apps.title = Yüklü uygulamalar
+apps.note = Windows, masaüstü uygulamaları için güvenilir bir "son kullanım" tarihi tutmuyor. Bu yüzden bu liste hangilerini az kullandığını bilemez ve tahmin de etmez. Sıralamak için bir sütuna tıkla, örneğin boyuta.
+apps.noData = Veri yok
+apps.uninstall = Windows Ayarlar'da kaldır...
+apps.stopMeasuring = Ölçmeyi durdur
+apps.classic = Klasik Programlar ve Özellikler
+apps.reading = Yüklü uygulamaların listesi okunuyor...
+apps.sizeUnknown = Bilinmiyor
+apps.sizeNotListed = Belirtilmemiş
+apps.sizeMeasured = Klasör ölçüldü
+apps.sizeEstimate = Uygulamanın tahmini
+apps.measuring = Boyutunu belirtmeyen uygulamaların klasörleri ölçülüyor... {0} / {1}
+apps.summary = {0} uygulama. Bilinen boyutların toplamı {1}.
+apps.summaryUnknown = {0} tanesi boyut belirtmiyor.
+apps.summaryStopped = Ölçme durduruldu.
+apps.summaryStore = Store uygulamaları yalnızca Windows Ayarlar'da listelenir.
+apps.pickApp = Önce listeden bir uygulama seç.
+apps.openedSettingsCopied = Windows Ayarlar açıldı. "{0}" adı kopyalandı: oradaki arama kutusuna yapıştır, sonra Kaldır'ı seç.
+apps.openedSettings = Windows Ayarlar açıldı. Orada "{0}" adını ara, sonra Kaldır'ı seç.
+apps.openedClassic = Programlar ve Özellikler açıldı. Orada "{0}" uygulamasını bul, sonra Kaldır'ı seç.
+apps.openFailed = Windows Ayarlar açılamadı. Ayarlar > Uygulamalar > Yüklü uygulamalar'ı kendin aç.
+
+settings.title = Ayarlar
+settings.language = Dil
+settings.languageAuto = Windows ile aynı
+settings.theme = Görünüm
+settings.themeAuto = Windows ile aynı
+settings.light = Açık
+settings.dark = Koyu
+settings.highContrast = Windows'ta yüksek kontrast açık, bu yüzden uygulama Windows'un renklerini kullanıyor.
+settings.ok = Tamam
+settings.cancel = İptal

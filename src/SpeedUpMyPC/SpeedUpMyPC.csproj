@@ -13,4 +13,8 @@
   <ItemGroup>
     <Reference Include="System.ServiceProcess" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- Languages: same resource names as build.ps1 ("lang.en.txt", "lang.tr.txt", ...) -->
+    <EmbeddedResource Include="lang\*.txt" LogicalName="lang.%(Filename)%(Extension)" />
+  </ItemGroup>
 </Project>

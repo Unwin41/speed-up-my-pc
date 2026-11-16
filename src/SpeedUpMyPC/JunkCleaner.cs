@@ -57,7 +57,7 @@ namespace SpeedUpMyPC
             {
                 if (!Directory.Exists(t.Path)) continue;
                 if (t.SkipIf != null && t.SkipIf()) continue;
-                progress("Cleaning " + t.Path);
+                progress(Lang.F("clean.cleaning", t.Path));
 
                 List<ServiceController> stopped = StopServices(t.Services);
                 try
