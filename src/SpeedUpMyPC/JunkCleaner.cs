@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.ServiceProcess;
+using Microsoft.Win32;
 
 namespace SpeedUpMyPC
 {
@@ -17,10 +18,15 @@ namespace SpeedUpMyPC
             public bool SkipRecentFiles;   // temp folders: an installer may be using fresh files
             public string[] Services;      // services that lock the folder; stopped and restarted around cleaning
             public string FilePattern;     // null = everything
+            public Func<bool> SkipIf;      // checked right before cleaning; true = leave the folder alone
         }
+
+        // True after Run() if the Windows Update cache was left alone because an update was in progress.
+        public static bool SkippedWindowsUpdate { get; private set; }
 
         public static long Run(Action<string> progress)
         {
+            SkippedWindowsUpdate = false;
             string windir = Environment.GetFolderPath(Environment.SpecialFolder.Windows);
             string localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 
@@ -31,7 +37,8 @@ namespace SpeedUpMyPC
                 new Target
                 {
                     Path = System.IO.Path.Combine(windir, @"SoftwareDistribution\Download"),
-                    Services = new[] { "wuauserv", "bits" }
+                    Services = new[] { "wuauserv", "bits" },
+                    SkipIf = () => SkippedWindowsUpdate = WindowsUpdateInProgress(System.IO.Path.Combine(windir, @"SoftwareDistribution\Download"))
                 },
                 new Target
                 {
@@ -49,6 +56,7 @@ namespace SpeedUpMyPC
             foreach (Target t in targets)
             {
                 if (!Directory.Exists(t.Path)) continue;
+                if (t.SkipIf != null && t.SkipIf()) continue;
                 progress("Cleaning " + t.Path);
 
                 List<ServiceController> stopped = StopServices(t.Services);
@@ -121,6 +129,50 @@ namespace SpeedUpMyPC
         {
             try { return (File.GetAttributes(dir) & FileAttributes.ReparsePoint) != 0; }
             catch { return true; }
+        }
+
+        // An update is downloading, installing, or waiting for a restart. Emptying its
+        // download folder now could break it, so the folder is left for next time.
+        private static bool WindowsUpdateInProgress(string downloadDir)
+        {
+            if (KeyExists(@"SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\RebootRequired")) return true;
+            if (KeyExists(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\RebootPending")) return true;
+            if (IsServiceRunning("TrustedInstaller")) return true; // Windows Modules Installer: installing updates right now
+            return HasRecentFiles(downloadDir);                     // something was downloaded in the last 24 hours
+        }
+
+        private static bool KeyExists(string path)
+        {
+            try
+            {
+                using (RegistryKey root = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry64))
+                using (RegistryKey key = root.OpenSubKey(path))
+                    return key != null;
+            }
+            catch { return true; } // can't tell: assume an update is pending
+        }
+
+        private static bool IsServiceRunning(string name)
+        {
+            try
+            {
+                using (var sc = new ServiceController(name))
+                    return sc.Status != ServiceControllerStatus.Stopped;
+            }
+            catch { return false; } // service doesn't exist
+        }
+
+        private static bool HasRecentFiles(string dir)
+        {
+            try
+            {
+                foreach (string f in Directory.EnumerateFiles(dir, "*", SearchOption.AllDirectories))
+                {
+                    if (DateTime.UtcNow - File.GetLastWriteTimeUtc(f) < RecentFileAge) return true;
+                }
+                return false;
+            }
+            catch { return true; } // can't tell: assume an update is in progress
         }
 
         private static List<ServiceController> StopServices(string[] names)

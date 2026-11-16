@@ -142,6 +142,7 @@ namespace SpeedUpMyPC
         }
 
         // Restores every recorded change, newest first, so the oldest saved state wins.
+        // Throws if the undo file can't be read; the caller shows the error.
         public static int UndoAll()
         {
             if (!File.Exists(UndoFile)) return 0;
@@ -169,7 +170,11 @@ namespace SpeedUpMyPC
                 catch { allOk = false; }
             }
 
-            if (allOk) File.Delete(UndoFile);
+            if (allOk)
+            {
+                try { File.Delete(UndoFile); }
+                catch { } // already restored; a leftover file only means Undo stays visible
+            }
             return restored;
         }
 

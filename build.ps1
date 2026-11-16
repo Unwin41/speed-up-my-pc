@@ -11,6 +11,7 @@ New-Item -ItemType Directory -Force $out | Out-Null
 & $csc /nologo /target:winexe /optimize+ /platform:anycpu `
     /out:"$out\SpeedUpMyPC.exe" `
     /win32manifest:"$src\app.manifest" `
+    /win32icon:"$src\app.ico" `
     /reference:System.Windows.Forms.dll /reference:System.Drawing.dll /reference:System.ServiceProcess.dll `
     "$src\*.cs"
 if ($LASTEXITCODE -ne 0) { throw "Build failed" }
